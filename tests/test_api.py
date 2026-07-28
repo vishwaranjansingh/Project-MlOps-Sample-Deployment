@@ -1,7 +1,11 @@
-import pytest
-from fastapi.testclient import TestClient
+import sys
 import os
 import joblib
+import pytest
+from fastapi.testclient import TestClient
+
+# Ensure root directory is in sys.path for module imports
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 # Ensure model exists before running API tests
 from src.train import train_and_save_model

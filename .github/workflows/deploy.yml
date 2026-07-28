@@ -38,8 +38,10 @@ jobs:
           python src/train.py
 
       - name: Run API Sanity & Unit Tests
+        env:
+          PYTHONPATH: .
         run: |
-          pytest tests/ -v
+          python -m pytest tests/ -v
 
       - name: Upload Trained Model Artifact
         uses: actions/upload-artifact@v4
