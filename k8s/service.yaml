@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mind-eval-model-service
+  namespace: mlops-system
+  labels:
+    app.kubernetes.io/name: mind-eval-model
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8000
+    protocol: TCP
+    name: http
+  selector:
+    app: mind-eval-model
